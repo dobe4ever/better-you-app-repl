@@ -1,5 +1,4 @@
 // src/data/dummyData.js
-
 export const habits = [
   {
     id: 'h1',

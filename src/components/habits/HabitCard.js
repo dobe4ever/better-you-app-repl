@@ -13,6 +13,7 @@ const HabitCard = ({ habit, onToggle, onOpenMenu, onCardClick }) => {
   };
 
   return (
+    // Main container with flexbox
     <motion.div
       className="flex rounded-lg shadow-md mb-4 h-36 overflow-hidden"
       whileHover={{ scale: 1.03 }}
@@ -20,10 +21,10 @@ const HabitCard = ({ habit, onToggle, onOpenMenu, onCardClick }) => {
       onClick={() => onCardClick(habit.id)}
     >
       {/* White section (left side) */}
-      <div className="flex-grow bg-white p-2 sm:p-4 flex flex-col">
+      <div className="flex-grow bg-white p-2 sm:p-4 flex flex-col pl-4 sm:pl-6">
 
         {/* Habit title */}
-        <h3 className="text-style-subheading text-left mb-2 truncate">{habit.name}</h3>
+        <h3 className="text-style-subheading text-left mb-2">{habit.name}</h3>
 
         {/* Progress bars and check button */}
         <div className="mb-1 flex items-center space-x-2">
@@ -46,7 +47,7 @@ const HabitCard = ({ habit, onToggle, onOpenMenu, onCardClick }) => {
               {[...Array(totalDays)].map((_, index) => (
                 <div 
                   key={index}
-                  className={`w-1.5 h-1.5 rounded-full ${index < consecutiveDays ? 'bg-orange-main' : 'bg-orange-100'}`}
+                  className={`w-2 h-2 rounded-full ${index < consecutiveDays ? 'bg-orange-main' : 'bg-orange-100'}`}
                 ></div>
               ))}
             </div>
