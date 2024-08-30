@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://dobe4ever.github.io/better-you-react-app",
+  "homepage": "https://dobe4ever.github.io/better-you-app-repl",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -b gh-pages -d build",
