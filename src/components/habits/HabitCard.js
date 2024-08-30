@@ -38,7 +38,7 @@ const HabitCard = ({ habit, onToggle, onOpenMenu, onCardClick }) => {
             {/* First Progress Bar */}
             <div className="relative w-full h-2 bg-orange-100 rounded-full mb-1">
               <div 
-                className="absolute top-0 left-0 h-full bg-orange-main rounded-full"
+                className="absolute top-0 left-0 h-full bg-gradient-orange rounded-full"
                 style={{ width: `${(consecutiveDays / totalDays) * 100}%` }}
               ></div>
             </div>

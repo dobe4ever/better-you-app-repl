@@ -14,7 +14,7 @@ module.exports = {
         },
       },
       backgroundImage: {
-        'gradient-orange': 'linear-gradient(45deg, #FF5300, #FFB700)',
+        'gradient-orange': 'linear-gradient(45deg, #FFB700, #FF5300)',
         'gradient-white': 'linear-gradient(45deg, #FFF3E2, #FFFFE2, #FFFFFF)',
       },
       borderColor: {
