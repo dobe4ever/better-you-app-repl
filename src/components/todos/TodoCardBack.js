@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, Save, Edit, Trash } from 'lucide-react';
-import ReactMarkdown from 'react-markdown';
 
 const TodoCardBack = ({ todo, onClose, onUpdateNotes }) => {
   const [notes, setNotes] = useState(todo.notes || '');
@@ -33,6 +32,15 @@ const TodoCardBack = ({ todo, onClose, onUpdateNotes }) => {
     setIsEditing(true);
   };
 
+  const renderNotes = (text) => {
+    return text.split('\n').map((line, index) => (
+      <React.Fragment key={index}>
+        {line}
+        <br />
+      </React.Fragment>
+    ));
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -54,7 +62,7 @@ const TodoCardBack = ({ todo, onClose, onUpdateNotes }) => {
               onChange={handleNotesChange}
               className="w-full p-2 border rounded-md mb-2"
               rows="4"
-              placeholder="Add your notes here... (Markdown supported)"
+              placeholder="Add your notes here..."
             />
             <button
               onClick={handleSubmit}
@@ -66,8 +74,8 @@ const TodoCardBack = ({ todo, onClose, onUpdateNotes }) => {
           </>
         ) : (
           <>
-            <div className="w-full p-2 border rounded-md mb-2 prose">
-              <ReactMarkdown>{notes}</ReactMarkdown>
+            <div className="w-full p-2 border rounded-md mb-2 whitespace-pre-wrap">
+              {renderNotes(notes)}
             </div>
             <button
               onClick={handleEdit}
