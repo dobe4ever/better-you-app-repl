@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { X, Save, Edit, Trash } from 'lucide-react';
+import { ChevronLeft, Save, Edit, Trash } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 
 const TodoCardBack = ({ todo, onClose, onUpdateNotes }) => {
   const [notes, setNotes] = useState(todo.notes || '');
@@ -41,7 +42,7 @@ const TodoCardBack = ({ todo, onClose, onUpdateNotes }) => {
     >
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-bold">{todo.title}</h2>
-        <X className="cursor-pointer" onClick={onClose} />
+        <ChevronLeft className="cursor-pointer" onClick={onClose} />
       </div>
 
       <div className="mb-4">
@@ -53,7 +54,7 @@ const TodoCardBack = ({ todo, onClose, onUpdateNotes }) => {
               onChange={handleNotesChange}
               className="w-full p-2 border rounded-md mb-2"
               rows="4"
-              placeholder="Add your notes here..."
+              placeholder="Add your notes here... (Markdown supported)"
             />
             <button
               onClick={handleSubmit}
@@ -65,7 +66,9 @@ const TodoCardBack = ({ todo, onClose, onUpdateNotes }) => {
           </>
         ) : (
           <>
-            <p className="w-full p-2 border rounded-md mb-2">{notes}</p>
+            <div className="w-full p-2 border rounded-md mb-2 prose">
+              <ReactMarkdown>{notes}</ReactMarkdown>
+            </div>
             <button
               onClick={handleEdit}
               className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2"
