@@ -80,7 +80,7 @@ module.exports = {
           fontSize: '1rem',
           lineHeight: '2rem',
           fontWeight: '600',
-          fontFamily: 'Poppins',
+          fontFamily: 'Nunito',
         },
         // Custom class for base text style
         '.text-style-base': {
