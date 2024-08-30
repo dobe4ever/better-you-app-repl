@@ -121,7 +121,7 @@ export const habits = [
 
 export const todos = [
   { id: 't1', title: "Check or uncheck any todo", isCompleted: false, isRecurring: false, hasNotes: false },
-  { id: 't2', title: "Uncheck if this todo is not completed", isCompleted: true, isRecurring: false, hasNotes: false },
+  { id: 't2', title: "This card has notes", isCompleted: true, isRecurring: false, hasNotes: true },
   { id: 't3', title: "Toggle icons to make recurring, edit or delete", isCompleted: false, isRecurring: true, hasNotes: false },
   { id: 't5', title: "Open the back of this card to write notes", isCompleted: false, isRecurring: false, hasNotes: false },
 ];
