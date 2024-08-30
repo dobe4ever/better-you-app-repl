@@ -1,3 +1,4 @@
+// src/components/layout/BottomNav.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ContextualMenu from '../ui/ContextualMenu';

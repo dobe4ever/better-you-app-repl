@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, Edit} from 'lucide-react';
+import { X, Edit} from 'lucide-react';
 
 const TodoCardBack = ({ todo, onClose, onUpdateNotes }) => {
   const [notes, setNotes] = useState(todo.notes || '');
@@ -60,7 +60,7 @@ const TodoCardBack = ({ todo, onClose, onUpdateNotes }) => {
     >
       <div className="flex justify-between items-center mb-4"> {/* Header section styling */}
         <h2 className="text-xl font-bold">{todo.title}</h2> {/* Title styling */}
-        <ChevronLeft className="cursor-pointer" onClick={onClose} /> {/* Back button styling */}
+        <X className="cursor-pointer" onClick={onClose} /> {/* Back button styling */}
       </div>
 
       <div className="mb-4"> {/* Main content styling */}

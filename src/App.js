@@ -1,12 +1,12 @@
-// src/App.js
-
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/layout/Header';
 import BottomNav from './components/layout/BottomNav';
-import UserProfile from './components/UserProfile';
-import ListsContainer from './components/ListsContainer';
+import MainArea from './components/layout/MainArea';
 import LoginSignupForm from './components/LoginSignupForm';
+import Home from './pages/Home';
+import News from './pages/News';
+import AICoach from './pages/AICoach';
 import { habits as initialHabits, todos as initialTodos } from './data/dummyData';
 
 function App() {
@@ -42,31 +42,25 @@ function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-gray-100">
+      <div className="min-h-screen bg-grey-">
         <Header />
-        <div className="pt-16 pb-20">
-          <div className="container mx-auto px-4 py-8 max-w-4xl">
-            <Routes>
-              <Route path="/" element={
-                <>
-                  <UserProfile />
-                  <ListsContainer
-                    habits={habits}
-                    todos={todos}
-                    onToggleHabit={toggleHabit}
-                    onToggleTodo={toggleTodo}
-                    onUpdateHabit={updateHabit}
-                    onDeleteHabit={deleteHabit}
-                  />
-                </>
-              } />
-              <Route path="/news" element={<div>News Section</div>} />
-              <Route path="/add" element={<div>Add Section</div>} />
-              <Route path="/coach" element={<div>AI Coach Section</div>} />
-              <Route path="/more" element={<div>More Section</div>} />
-            </Routes>
-          </div>
-        </div>
+        <MainArea>
+          <Routes>
+            <Route path="/" element={
+              <Home
+                habits={habits}
+                todos={todos}
+                onToggleHabit={toggleHabit}
+                onToggleTodo={toggleTodo}
+                onUpdateHabit={updateHabit}
+                onDeleteHabit={deleteHabit}
+              />
+            } />
+            <Route path="/news" element={<News />} />
+            <Route path="/coach" element={<AICoach />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </MainArea>
         <BottomNav />
       </div>
     </Router>

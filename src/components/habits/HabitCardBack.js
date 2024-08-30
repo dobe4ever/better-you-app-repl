@@ -1,7 +1,7 @@
 // src/components/HabitCardBack.js
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft } from 'lucide-react';
+import { X } from 'lucide-react';
 
 const HabitCardBack = ({ habit, onClose }) => {
   return (
@@ -14,7 +14,7 @@ const HabitCardBack = ({ habit, onClose }) => {
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold">{habit.name}</h2>
-          <ChevronLeft className="text-2xl cursor-pointer" onClick={onClose} />
+          <X className="text-2xl cursor-pointer" onClick={onClose} />
         </div>
         
         <div className="mb-6">
