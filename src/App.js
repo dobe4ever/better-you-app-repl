@@ -1,3 +1,4 @@
+// src/App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/layout/Header';
@@ -7,7 +8,13 @@ import LoginSignupForm from './components/LoginSignupForm';
 import Home from './pages/Home';
 import News from './pages/News';
 import AICoach from './pages/AICoach';
+import Calendar from './pages/Calendar';
+import Stats from './pages/Stats';
+import Community from './pages/Community';
+import Collaboration from './pages/Collaboration';
+import Courses from './pages/Courses';
 import { habits as initialHabits, todos as initialTodos } from './data/dummyData';
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -58,6 +65,11 @@ function App() {
             } />
             <Route path="/news" element={<News />} />
             <Route path="/coach" element={<AICoach />} />
+            <Route path="/calendar" element={<Calendar />} />
+            <Route path="/stats" element={<Stats />} />
+            <Route path="/community" element={<Community />} />
+            <Route path="/collaboration" element={<Collaboration />} />
+            <Route path="/courses" element={<Courses />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </MainArea>

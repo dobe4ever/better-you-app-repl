@@ -17,11 +17,11 @@ const BottomNav = () => {
   ];
 
   const moreMenuItems = [
-    { icon: Calendar, label: 'Calendar', onClick: () => console.log('Calendar clicked') },
-    { icon: BarChart2, label: 'Stats', onClick: () => console.log('Stats clicked') },
-    { icon: Users, label: 'Community', onClick: () => console.log('Community clicked') },
-    { icon: Briefcase, label: 'Collaboration', onClick: () => console.log('Collaboration clicked') },
-    { icon: GraduationCap, label: 'Courses', onClick: () => console.log('Courses clicked') },
+    { icon: Calendar, label: 'Calendar', onClick: () => { navigate('/calendar'); setShowMenu(false); } },
+    { icon: BarChart2, label: 'Stats', onClick: () => { navigate('/stats'); setShowMenu(false); } },
+    { icon: Users, label: 'Community', onClick: () => { navigate('/community'); setShowMenu(false); } },
+    { icon: Briefcase, label: 'Collaboration', onClick: () => { navigate('/collaboration'); setShowMenu(false); } },
+    { icon: GraduationCap, label: 'Courses', onClick: () => { navigate('/courses'); setShowMenu(false); } },
   ];
 
   const renderNavItem = (item, index) => {
