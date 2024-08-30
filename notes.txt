@@ -1,0 +1,21 @@
+things to ask assistant:
+
+In the context of React.js with Tailwind CSS and react-lucide, whats the purpose of each .css files? specifically:
+
+src/index.css
+build/out.css
+public/out.css
+build/static/css/main.a4c0a087.css
+postcss.config.js
+tailwind.config.js
+
+and whatever else i might be missing...
+
+
+
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
