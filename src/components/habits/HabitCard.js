@@ -54,18 +54,17 @@ const HabitCard = ({ habit, onToggle, onOpenMenu, onCardClick }) => {
             </div>
           </div>
         </div>
-
         {/* Status icons and More button */}
         <div className="mt-auto flex justify-between items-center">
-          <div className="flex overflow-x-auto space-x-1 flex-grow">
-            {habit.isHighlighted && <Star className="text-gray-200 flex-shrink-0 h-4 w-4" />}
-            {habit.isRecurring && <Repeat className="text-gray-200 flex-shrink-0 h-4 w-4" />}
-            {habit.priority && <Flag className="text-gray-200 flex-shrink-0 h-4 w-4" />}
-            {habit.deadline && <Calendar className="text-gray-200 flex-shrink-0 h-4 w-4" />}
-            {habit.reminder && <AlarmClock className="text-gray-200 flex-shrink-0 h-4 w-4" />}
-            {habit.priority && <Lock className="text-gray-200 flex-shrink-0 h-4 w-4" />}
-            {habit.deadline && <Palette className="text-gray-200 flex-shrink-0 h-4 w-4" />}
-            {habit.reminder && <Trash className="text-gray-200 flex-shrink-0 h-4 w-4" />}
+          <div className="flex overflow-x-auto space-x-3 flex-grow">
+            {habit.isHighlighted && <Star className="cursor-pointer text-gray-400 w-5" />}
+            {habit.isRecurring && <Repeat className="cursor-pointer text-gray-400 w-5" />}
+            {habit.priority && <Flag className="cursor-pointer text-gray-400 w-5" />}
+            {habit.deadline && <Calendar className="cursor-pointer text-gray-400 w-5" />}
+            {habit.reminder && <AlarmClock className="cursor-pointer text-gray-400 w-5" />}
+            {habit.priority && <Lock className="cursor-pointer text-gray-400 w-5" />}
+            {habit.deadline && <Palette className="cursor-pointer text-gray-400 w-5" />}
+            {habit.reminder && <Trash className="cursor-pointer text-gray-400 w-5" />}
           </div>
           <IconButton 
             icon={MoreHorizontal}

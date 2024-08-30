@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, Edit } from 'lucide-react';
+import { ChevronLeft, Edit} from 'lucide-react';
 
 const TodoCardBack = ({ todo, onClose, onUpdateNotes }) => {
   const [notes, setNotes] = useState(todo.notes || '');
   const [isEditing, setIsEditing] = useState(!todo.hasNotes);
+  const [isFocused, setIsFocused] = useState(false); // Track focus state
+  const textareaRef = useRef(null); // Ref for textarea
 
   useEffect(() => {
     setNotes(todo.notes || '');
@@ -22,11 +24,22 @@ const TodoCardBack = ({ todo, onClose, onUpdateNotes }) => {
 
   const handleEdit = () => {
     setIsEditing(true);
+    setIsFocused(true); // Trigger focus on edit
   };
 
   const handleCancel = () => {
     setNotes(todo.notes || '');
     setIsEditing(false);
+    setIsFocused(false); // Reset focus state
+  };
+
+  const handleTextareaFocus = () => {
+    setIsFocused(true);
+  };
+
+  const handleTextareaBlur = () => {
+    // Optional: handle if you want to reset focus state when losing focus
+    // setIsFocused(false);
   };
 
   const renderNotes = (text) => {
@@ -65,27 +78,32 @@ const TodoCardBack = ({ todo, onClose, onUpdateNotes }) => {
           <>
             {/* Styling for the textarea input when editing notes */}
             <textarea
+              ref={textareaRef}
               value={notes}
               onChange={handleNotesChange}
-              className="w-full p-2 border rounded-md mb-2 focus:ring-2 focus:ring-orange-main focus:border-transparent" // Modify this line to change textarea style
+              onFocus={handleTextareaFocus}
+              onBlur={handleTextareaBlur} // Optional: handle losing focus
+              className="w-full p-2 border rounded-md mb-2 focus:ring-1 focus:ring-orange-main focus:border-transparent" // Modify this line to change textarea style
               rows="4"
               placeholder="Add your notes here..." // Placeholder text
-              autoFocus
+              autoFocus={isFocused} // Trigger focus only when user starts editing
             />
-            <div className="flex justify-end space-x-2"> {/* Button container styling */}
-              <button
-                onClick={handleCancel}
-                className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300" // Cancel button styling
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleSubmit}
-                className="bg-orange-main text-white px-4 py-2 rounded-md hover:bg-orange-600" // Save button styling
-              >
-                Save
-              </button>
-            </div>
+            {isFocused && ( // Show buttons only when textarea is focused
+              <div className="flex justify-end space-x-2"> {/* Button container styling */}
+                <button
+                  onClick={handleCancel}
+                  className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300" // Cancel button styling
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleSubmit}
+                  className="bg-orange-main text-white px-4 py-2 rounded-md hover:bg-orange-600" // Save button styling
+                >
+                  Save
+                </button>
+              </div>
+            )}
           </>
         ) : (
           <div className="w-full p-2 mb-2 min-h-[100px]"> {/* Styling for displaying saved notes */}

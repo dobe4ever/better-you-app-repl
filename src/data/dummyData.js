@@ -122,7 +122,7 @@ export const habits = [
 export const todos = [
   { id: 't1', title: "Buy groceries", isCompleted: false, isRecurring: false, hasNotes: false },
   { id: 't2', title: "Call mom", isCompleted: true, isRecurring: true, hasNotes: true },
-  { id: 't3', title: "Finish project report", isCompleted: false, isRecurring: false, hasNotes: true },
+  { id: 't3', title: "Finish project report", isCompleted: false, isRecurring: false, hasNotes: false },
   { id: 't4', title: "Schedule dentist appointment", isCompleted: false, isRecurring: true, hasNotes: false },
 ];
 
