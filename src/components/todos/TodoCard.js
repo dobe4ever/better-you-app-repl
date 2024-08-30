@@ -1,5 +1,7 @@
+// src/components/todos/TodoCard.js
+
 import React, { useState } from 'react';
-import { Check, Edit, Repeat, Trash, ChevronRight } from 'lucide-react';
+import { Check, Edit, Repeat, Trash, ChevronRight, FileText } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import TodoCardBack from './TodoCardBack';
 
@@ -81,6 +83,9 @@ const TodoCard = ({ todo, onToggle, onEdit, onDelete, onUpdateNotes, onRepeatTog
               )}
             </div>
             <div className="flex items-center p-2">
+              {todo.hasNotes && (
+                <FileText className="text-orange-main cursor-pointer mr-3 w-5" />
+              )}
               <Repeat
                 className={`cursor-pointer mr-3 w-5 ${todo.isRecurring ? 'text-orange-main' : 'text-gray-400'}`}
                 onClick={handleRepeatClick}

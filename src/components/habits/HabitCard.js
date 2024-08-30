@@ -27,7 +27,7 @@ const HabitCard = ({ habit, onToggle, onOpenMenu, onCardClick }) => {
         <h3 className="text-style-subheading text-left mb-2">{habit.name}</h3>
 
         {/* Progress bars and check button */}
-        <div className="mb-1 flex items-center space-x-2">
+        <div className="flex items-center space-x-2">
           <IconButton
             icon={Check}
             onClick={(e) => handleAction(e, onToggle)}

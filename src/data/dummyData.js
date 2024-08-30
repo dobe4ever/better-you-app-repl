@@ -43,7 +43,7 @@ export const habits = [
     id: 'h2',
     name: 'Meditate for 10 minutes',
     category: 'health',
-    isCompleted: false,
+    isCompleted: true,
     isHighlighted: true,
     isRecurring: false,
     priority: true,
@@ -80,7 +80,7 @@ export const habits = [
   },
   {
     id: 'h3',
-    name: 'Meditate for 10 minutes',
+    name: 'Excersise for 30 minutes',
     category: 'health',
     isCompleted: false,
     isHighlighted: true,
@@ -120,8 +120,9 @@ export const habits = [
 ];
 
 export const todos = [
-  { id: 't1', title: "Buy groceries", isCompleted: false },
-  { id: 't2', title: "Call mom", isCompleted: true },
-  { id: 't3', title: "Finish project report", isCompleted: false },
-  { id: 't4', title: "Schedule dentist appointment", isCompleted: false },
+  { id: 't1', title: "Buy groceries", isCompleted: false, isRecurring: false, hasNotes: false },
+  { id: 't2', title: "Call mom", isCompleted: true, isRecurring: true, hasNotes: true },
+  { id: 't3', title: "Finish project report", isCompleted: false, isRecurring: false, hasNotes: true },
+  { id: 't4', title: "Schedule dentist appointment", isCompleted: false, isRecurring: true, hasNotes: false },
 ];
+
