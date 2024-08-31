@@ -124,5 +124,9 @@ export const todos = [
   { id: 't2', title: "This card has notes", isCompleted: true, isRecurring: false, hasNotes: true },
   { id: 't3', title: "Toggle icons to make recurring, edit or delete", isCompleted: false, isRecurring: true, hasNotes: false },
   { id: 't4', title: "Open the back of this card to write notes", isCompleted: false, isRecurring: false, hasNotes: false },
+  { id: 't5', title: "Check or uncheck any todo", isCompleted: false, isRecurring: false, hasNotes: false },
+  { id: 't6', title: "This card has notes", isCompleted: true, isRecurring: false, hasNotes: true },
+  { id: 't7', title: "Toggle icons to make recurring, edit or delete", isCompleted: false, isRecurring: true, hasNotes: false },
+  { id: 't8', title: "Open the back of this card to write notes", isCompleted: false, isRecurring: false, hasNotes: false },
 ];
 
