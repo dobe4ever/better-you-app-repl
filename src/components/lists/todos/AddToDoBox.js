@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Plus } from 'lucide-react';
-import { cn } from "../../lib/utils";
-import IconButton from '../ui/IconButton';
+import { cn } from '../../../lib/utils';
+import IconButton from '../../ui/IconButton';
 
 const Input = React.forwardRef(({ className, type, ...props }, ref) => {
     return (

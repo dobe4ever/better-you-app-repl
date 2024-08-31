@@ -28,3 +28,4 @@ const List = ({ title, items, renderItem }) => {
 };
 
 export default List;
+

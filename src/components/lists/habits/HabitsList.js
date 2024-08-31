@@ -1,10 +1,10 @@
 // src/components/habits/HabitsList.js
 
 import React, { useState, useCallback } from 'react';
-import List from '../ui/List';
+import List from '../List';
 import HabitCard from './HabitCard';
 import HabitCardBack from './HabitCardBack';
-import ContextualMenu from '../ui/ContextualMenu';
+import ContextualMenu from '../../ui/ContextualMenu';
 import AddHabitBox from './AddHabitBox';
 import { AlarmClock, Palette, Lock, Calendar, Repeat, Flag, Star, Trash } from 'lucide-react';
 

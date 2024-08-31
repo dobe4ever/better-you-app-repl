@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Header from './components/layout/Header';
 import BottomNav from './components/layout/BottomNav';
 import MainArea from './components/layout/MainArea';
-import LoginSignupForm from './components/LoginSignupForm';
+import LoginSignupForm from './components/ui/LoginSignupForm';
 import Home from './pages/Home';
 import News from './pages/News';
 import AICoach from './pages/AICoach';

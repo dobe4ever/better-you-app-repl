@@ -1,7 +1,8 @@
+// src/components/lists/ListsContainer.js
 import React, { useState } from 'react';
 import HabitsList from './habits/HabitsList';
-import TodosList from './todos/TodosList';
-import { habits as initialHabits, todos as initialTodos } from '../data/dummyData';
+import TodosList from './todos/TodosList'; 
+import { habits as initialHabits, todos as initialTodos } from '../../data/dummyData';
 
 
 const ListsContainer = () => {

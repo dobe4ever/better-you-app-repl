@@ -1,7 +1,7 @@
 // src/pages/Home.js
 import React from 'react';
-import UserProfile from '../components/UserProfile';
-import ListsContainer from '../components/ListsContainer';
+import UserProfile from '../components/ui/UserProfile';
+import ListsContainer from '../components/lists/ListsContainer';
 
 function Home({ habits, todos, onToggleHabit, onToggleTodo, onUpdateHabit, onDeleteHabit }) {
   return (

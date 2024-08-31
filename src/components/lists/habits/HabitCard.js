@@ -1,7 +1,7 @@
 // src/components/habits/HabitCard.js
 import React from 'react';
 import { motion } from 'framer-motion';
-import IconButton from '../ui/IconButton';
+import IconButton from '../../ui/IconButton';
 import { Trash, Palette, Lock, Check, MoreHorizontal, AlarmClock, Star, Repeat, Flag, Calendar } from 'lucide-react';
 
 const HabitCard = ({ habit, onToggle, onOpenMenu, onCardClick }) => {

@@ -1,7 +1,9 @@
+// src/components/ui/LoginSignupForm.js
 import React, { useState } from "react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
+import { Button } from "./button.jsx";
+import { Input } from "./input.jsx";
+import { Card, CardHeader, CardTitle, CardContent } from "./card.jsx";
+
 
 const LoginSignupForm = ({ onLogin }) => {
   const [username, setUsername] = useState("");

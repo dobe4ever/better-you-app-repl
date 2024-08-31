@@ -1,9 +1,9 @@
-// src/components/todos/TodosList.js
+// src/components/lists/todos/TodosList.js
 import React, { useState } from 'react';
-import List from '../ui/List';
+import List from '../List';
 import TodoCard from './TodoCard';
 import AddToDoBox from './AddToDoBox';
-import { todos as initialTodos } from '../../data/dummyData'; // Import static data
+import { todos as initialTodos } from '../../../data/dummyData';
 
 const TodosList = ({ onToggle, onOpenMenu }) => {
     const [todoList, setTodoList] = useState(initialTodos);
