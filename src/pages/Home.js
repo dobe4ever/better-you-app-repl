@@ -5,7 +5,7 @@ import ListsContainer from '../components/lists/ListsContainer';
 
 function Home({ habits, todos, onToggleHabit, onToggleTodo, onUpdateHabit, onDeleteHabit }) {
   return (
-    <div className="relative">
+    <div className="md:flex md:space-x-">
       <UserProfile />
       <ListsContainer
         habits={habits}
@@ -20,23 +20,3 @@ function Home({ habits, todos, onToggleHabit, onToggleTodo, onUpdateHabit, onDel
 }
 
 export default Home;
-
-
-// // NEW src/pages/Home.js
-// import React from 'react';
-// import AnimatedHome from '../components/animated/AnimatedHome';
-
-// function Home({ habits, todos, onToggleHabit, onToggleTodo, onUpdateHabit, onDeleteHabit }) {
-//   return (
-//     <AnimatedHome
-//       habits={habits}
-//       todos={todos}
-//       onToggleHabit={onToggleHabit}
-//       onToggleTodo={onToggleTodo}
-//       onUpdateHabit={onUpdateHabit}
-//       onDeleteHabit={onDeleteHabit}
-//     />
-//   );
-// }
-
-// export default Home;

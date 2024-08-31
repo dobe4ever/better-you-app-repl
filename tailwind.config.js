@@ -14,8 +14,14 @@ module.exports = {
         },
       },
       backgroundImage: {
-        'gradient-orange': 'linear-gradient(45deg, #FFB700, #FF5300)', 
+        
+        
+        // 'gradient-orange': 'linear-gradient(45deg, #FF5300, #FFB700)', 
+        'gradient-orange': 'linear-gradient(45deg, #f9a13d, #ee7539, #e55136)',
         'gradient-white': 'linear-gradient(45deg, #FFF3E2, #FFFFE2, #FFFFFF)',
+        'gradient-tomato': 'linear-gradient(#FF5300, #FF5300, #FF5300, #FF5430, #FF5300)', 
+        'gradient-pink': 'linear-gradient(45deg, #f74985, #46295c, #5355fb)',
+        'artistic-home': "url('/src/assets/background.svg')",
       },
       borderColor: {
         'border-gradient-orange': 'linear-gradient(45deg, #FF5300, #FFB700)',
@@ -49,25 +55,36 @@ module.exports = {
     function({ addUtilities }) {
       // Define new utility classes    
       const newUtilities = {
-        // Custom class for title style
-        '.text-style-title': {
-          // fontSize in px
+        '.text-style-title-orange': {
           fontSize: '40px',
-          // lineHeight = space between lines
           lineHeight: '1', // 1 =  lineHeight to fontSize ratio (40px)
           fontWeight: '900',
           fontFamily: 'Nunito, sans-serif',
-          // the background image or color will be clipped to the text itself, allowing the background to show through the text (if the text color is set to transparent)
-          backgroundClip: 'text', // Other Values:
-// border-box: Clips the background to the border box.
-// padding-box: Clips the background to the padding box.
-// content-box: Clips the background to the content box. 
+          backgroundClip: 'text',
           backgroundImage: 'linear-gradient(45deg, #FF5300, #FFB700)',
           textAlign: 'center',  
-          // text color  
           color: 'transparent',
         },
-          
+          '.text-style-title-white': {
+            fontSize: '40px',
+            lineHeight: '1', // 1 =  lineHeight to fontSize ratio (40px)
+            fontWeight: '900',
+            fontFamily: 'Nunito, sans-serif',
+            backgroundClip: 'text',
+            backgroundImage: 'linear-gradient(45deg, #FFF3E2, #FFFFE2, #FFFFFF)',
+            textAlign: 'left',  
+            color: 'transparent',
+          },
+        '.text-style-title-yellow': {
+          fontSize: '40px',
+          lineHeight: '1', // 1 =  lineHeight to fontSize ratio (40px)
+          fontWeight: '900',
+          fontFamily: 'Nunito, sans-serif',
+          backgroundClip: 'text',
+          backgroundImage: 'linear-gradient(45deg, #f74985, #973fc0, #46295c)',
+          textAlign: 'center',  
+          color: 'transparent',
+        },
         // Custom class for heading style
         '.text-style-heading': {
           fontSize: '2rem',

@@ -26,6 +26,7 @@
   "license": "ISC",
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
+    "@syncfusion/ej2-react-progressbar": "^26.2.10",
     "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",
     "framer-motion": "^11.3.19",

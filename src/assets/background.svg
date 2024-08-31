@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" preserveAspectRatio="4:3">
+  <defs>
+      <clipPath id="clip1">
+        <polygon points="0,0 450,0 450,550 350,450 0,450" />
+      </clipPath>
+
+      <clipPath id="clip2">
+        <polygon points="550,0 450,0 450,450 150,450" />
+      </clipPath>
+
+      <clipPath id="clip3">
+        <polygon points="0,0 450,0 450,550 90,450 1000" />
+      </clipPath>
+
+      <clipPath id="clip4">
+        <polygon points="0,0 450,0 450,550 350,450 0,450 1000" />
+      </clipPath>
+
+      <clipPath id="clip5">
+        <polygon points="550,0 450,0 450,450 150,450" />
+      </clipPath>
+
+      <clipPath id="clip6">
+        <polygon points="0,0 450,0 450,550 90,450 1000" />
+      </clipPath>
+  </defs>
+
+
+  <!-- Base layer -->
+  <rect width="100%" height="100%" fill="#b34f2b" />
+
+  <!-- Second layer -->
+  <rect width="100%" height="100%" fill="#9f4d42" clip-path="url(#clip1)" />
+
+  <!-- Third layer -->
+  <rect width="100%" height="100%" fill="#b34f2b" clip-path="url(#clip2)" />
+
+  <!-- Second layer -->
+  <rect width="100%" height="100%" fill="#e55136" clip-path="url(#clip1)" />
+
+  <!-- Third layer -->
+  <rect width="100%" height="100%" fill="#ee7539" clip-path="url(#clip2)" />
+
+  <!-- Third layer -->
+  <rect width="100%" height="100%" fill="#872013" clip-path="url(#clip3)" />
+</svg>

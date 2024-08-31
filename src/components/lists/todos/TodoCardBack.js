@@ -92,13 +92,13 @@ const TodoCardBack = ({ todo, onClose, onUpdateNotes }) => {
               <div className="flex justify-end space-x-2"> {/* Button container styling */}
                 <button
                   onClick={handleCancel}
-                  className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300" // Cancel button styling
+                  className="bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300" // Cancel button styling
                 >
                   Cancel
                 </button>
                 <button
                   onClick={handleSubmit}
-                  className="bg-orange-main text-white px-4 py-2 rounded-md hover:bg-orange-600" // Save button styling
+                  className="bg-orange-main hover:bg-orange-500 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300" // Save button styling
                 >
                   Save
                 </button>

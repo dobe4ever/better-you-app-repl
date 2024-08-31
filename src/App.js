@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/layout/Header';
@@ -14,7 +13,6 @@ import Community from './pages/Community';
 import Collaboration from './pages/Collaboration';
 import Courses from './pages/Courses';
 import { habits as initialHabits, todos as initialTodos } from './data/dummyData';
-
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -51,9 +49,10 @@ function App() {
     <Router>
       <div className="min-h-screen bg-grey-">
         <Header />
-        <MainArea>
-          <Routes>
-            <Route path="/" element={
+        <Routes>
+          <Route path="/" element={
+            <div className="bg-gradient-tomato"> {/* bg-gradient-tomato bg-artistic-home bg-no-repeat bg-cover Add your custom background color class here */}
+              <div className="min-h-full py-[64px]"> {/* Adjust 64px to match your header/footer height */}
               <Home
                 habits={habits}
                 todos={todos}
@@ -62,17 +61,24 @@ function App() {
                 onUpdateHabit={updateHabit}
                 onDeleteHabit={deleteHabit}
               />
-            } />
-            <Route path="/news" element={<News />} />
-            <Route path="/coach" element={<AICoach />} />
-            <Route path="/calendar" element={<Calendar />} />
-            <Route path="/stats" element={<Stats />} />
-            <Route path="/community" element={<Community />} />
-            <Route path="/collaboration" element={<Collaboration />} />
-            <Route path="/courses" element={<Courses />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </MainArea>
+            </div>
+            </div>
+          } />
+          <Route path="*" element={
+            <MainArea>
+              <Routes>
+                <Route path="/news" element={<News />} />
+                <Route path="/coach" element={<AICoach />} />
+                <Route path="/calendar" element={<Calendar />} />
+                <Route path="/stats" element={<Stats />} />
+                <Route path="/community" element={<Community />} />
+                <Route path="/collaboration" element={<Collaboration />} />
+                <Route path="/courses" element={<Courses />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
+              </Routes>
+            </MainArea>
+          } />
+        </Routes>
         <BottomNav />
       </div>
     </Router>
