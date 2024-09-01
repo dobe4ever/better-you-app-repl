@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/better-you-app-repl/static/css/main.4ac969d0.css",
+    "main.css": "/better-you-app-repl/static/css/main.1a4232ea.css",
     "main.js": "/better-you-app-repl/static/js/main.e3c32ed9.js",
     "static/media/background.svg": "/better-you-app-repl/static/media/background.9701ad6c61bc4f0ac448.svg",
     "index.html": "/better-you-app-repl/index.html",
-    "main.4ac969d0.css.map": "/better-you-app-repl/static/css/main.4ac969d0.css.map",
+    "main.1a4232ea.css.map": "/better-you-app-repl/static/css/main.1a4232ea.css.map",
     "main.e3c32ed9.js.map": "/better-you-app-repl/static/js/main.e3c32ed9.js.map"
   },
   "entrypoints": [
-    "static/css/main.4ac969d0.css",
+    "static/css/main.1a4232ea.css",
     "static/js/main.e3c32ed9.js"
   ]
 }
