@@ -56,7 +56,7 @@ const TodoCard = ({ todo, onToggle, onEdit, onDelete, onUpdateNotes, onRepeatTog
           <div className="flex justify-between items-center p-1 pl-4 pr-2">
             <div className="flex items-center flex-grow">
               <div
-                className={`w-8 h-8 rounded-full mr-3 flex items-center justify-center cursor-pointer z-10
+                className={`w-6 h-6 rounded-full mr-3 flex items-center justify-center cursor-pointer
                   ${todo.isCompleted ? 'bg-orange-main' : 'bg-orange-100'}`}
                 onClick={handleToggle}
               >
