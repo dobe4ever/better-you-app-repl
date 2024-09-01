@@ -8,7 +8,7 @@ function Home({ habits, todos, onToggleHabit, onToggleTodo, onUpdateHabit, onDel
   
   const parallaxStyle = {
     transform: `translateY(${scrollY * 0.3}px)`, // UserProfile moves at half the scroll speed
-    transition: 'transform 0.75s cubic-bezier(0,0,0.2,1)'
+    transition: 'transform 0.85s cubic-bezier(0,0,0.2,1)'
   };
   
   useEffect(() => {
@@ -25,10 +25,10 @@ function Home({ habits, todos, onToggleHabit, onToggleTodo, onUpdateHabit, onDel
   }, []);
 
   return (
-    <div className="pt-4 pb-0">
+    <div className="pt-0 pb-0">
       <div className="container md:flex md:flex-col md:items-center">
         <div style={parallaxStyle} 
-          className="color-orange-main mb-8"> 
+          className="color-orange-main mb-0"> 
           <UserProfile opacity={scrollOpacity} />
         </div>
         <div className="relative"> {/* Ensure ListsContainer is above UserProfile */}

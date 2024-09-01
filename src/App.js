@@ -52,8 +52,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={
-            <div className="bg-gradient-tomato"> {/* bg-gradient-tomato bg-artistic-home bg-no-repeat bg-cover Add your custom background color class here */}
-              <div className="min-h-full py-[64px]"> {/* Adjust 64px to match your header/footer height */}
+            <div className="bg-orange-main"> {/* bg-gradient-tomato bg-artistic-home bg-no-repeat bg-cover Add your custom background color class here */}
+              <div className="min-h-full py-[45px]"> {/* Adjust 64px to match your header/footer height */}
               <Home
                 habits={habits}
                 todos={todos}
@@ -87,3 +87,6 @@ function App() {
 }
 
 export default App;
+
+
+

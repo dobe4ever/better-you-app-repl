@@ -1,70 +1,84 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "./pages/**/*.{html,js}"  
-  ],
-  mode: 'jit',
-  theme: {
-    extend: {
-      colors: {
-        'orange': {
-          'main': '#FF5300',
-          'light': '#FFB700',
+  /** @type {import('tailwindcss').Config} */
+  module.exports = {
+    content: [
+      "./src/**/*.{js,jsx,ts,tsx}",
+      "./pages/**/*.{html,js}"
+    ],
+    mode: 'jit',
+    theme: {
+      extend: {
+        animation: {
+          'spin-slow': 'spin 20s linear infinite',
+          'fade-in': 'fadeIn 0.5s ease-out',
         },
-      },
-      backgroundImage: {
-        
-        
-        // 'gradient-orange': 'linear-gradient(45deg, #FF5300, #FFB700)', 
-        'gradient-orange': 'linear-gradient(45deg, #f9a13d, #ee7539, #e55136)',
-        'gradient-white': 'linear-gradient(45deg, #FFF3E2, #FFFFE2, #FFFFFF)',
-        'gradient-tomato': 'linear-gradient(#FF5300, #FF5300, #FF5300, #FF5430, #FF5300)', 
-        'gradient-pink': 'linear-gradient(45deg, #f74985, #46295c, #5355fb)',
-        'artistic-home': "url('/src/assets/background.svg')",
-      },
-      borderColor: {
-        'border-gradient-orange': 'linear-gradient(45deg, #FF5300, #FFB700)',
-      },    
-      fontFamily: {
-        'nunito': ['Nunito', 'sans-serif'],
-        'sans': ['Inter', 'sans-serif'],
-        'heading': ['Poppins', 'sans-serif'],
-      },
-      fontSize: {
-        'small': ['0.875rem', { lineHeight: '1.25rem' }],
-        'base': ['1rem', { lineHeight: '1.5rem' }],
-        'large': ['1.25rem', { lineHeight: '1.75rem' }],
-        'title': ['1.5rem', { lineHeight: '2rem' }],
-        'heading': ['2rem', { lineHeight: '2.5rem' }],
-      },
-      spacing: {
-        'tight': '0.5rem',
-        'base': '1rem',
-        'relaxed': '1.5rem',
-        'loose': '2rem',
-      },
-      borderRadius: {
-        'brand': '0.375rem',
+        keyframes: {
+          fadeIn: {
+            '0%': { opacity: 0 },
+            '100%': { opacity: 1 },
+          },
+        },
+        variants: {
+          extend: {
+            scale: ['hover'],
+            boxShadow: ['hover'],
+          },
+        },
+        colors: {
+          'orange': {
+            'main': '#FF5300',
+            'light': '#FFB700',
+          },
+        },
+        backgroundImage: {
+          'gradient-blue': 'linear-gradient(45deg, #faae7b, #432371)',
+          'gradient-orange': 'linear-gradient(45deg, #f9a13d, #ee7539, #e55136)',
+          'gradient-white': 'linear-gradient(45deg, #FFF3E2, #FFFFE2, #FFFFFF)',
+          'gradient-tomato': 'linear-gradient(45deg, #ffd78a, #f4762d)',
+          'gradient-pink': 'linear-gradient(45deg, #f74985, #46295c, #5355fb)',
+          'artistic-home': "url('/src/assets/background.svg')",
+        },
+        borderColor: {
+          'border-gradient-orange': 'linear-gradient(45deg, #FF5300, #FFB700)',
+        },
+        fontFamily: {
+          'nunito': ['Nunito', 'sans-serif'],
+          'sans': ['Inter', 'sans-serif'],
+          'heading': ['Poppins', 'sans-serif'],
+        },
+        fontSize: {
+          'small': ['0.875rem', { lineHeight: '1.25rem' }],
+          'base': ['1rem', { lineHeight: '1.5rem' }],
+          'large': ['1.25rem', { lineHeight: '1.75rem' }],
+          'title': ['1.5rem', { lineHeight: '2rem' }],
+          'heading': ['2rem', { lineHeight: '2.5rem' }],
+        },
+        spacing: {
+          'tight': '0.5rem',
+          'base': '1rem',
+          'relaxed': '1.5rem',
+          'loose': '2rem',
+        },
+        borderRadius: {
+          'brand': '0.375rem',
+        },
       },
     },
-  },
-  // Define custom plugins for Tailwind CSS
-  plugins: [
-    // Custom plugin function to add new utility classes
-    function({ addUtilities }) {
-      // Define new utility classes    
-      const newUtilities = {
-        '.text-style-title-orange': {
-          fontSize: '40px',
-          lineHeight: '1', // 1 =  lineHeight to fontSize ratio (40px)
-          fontWeight: '900',
-          fontFamily: 'Nunito, sans-serif',
-          backgroundClip: 'text',
-          backgroundImage: 'linear-gradient(45deg, #FF5300, #FFB700)',
-          textAlign: 'center',  
-          color: 'transparent',
-        },
+    // Define custom plugins for Tailwind CSS
+    plugins: [
+      // Custom plugin function to add new utility classes
+      function({ addUtilities }) {
+        // Define new utility classes
+        const newUtilities = {
+          '.text-style-title-orange': {
+            fontSize: '40px',
+            lineHeight: '1', // 1 =  lineHeight to fontSize ratio (40px)
+            fontWeight: '900',
+            fontFamily: 'Nunito, sans-serif',
+            backgroundClip: 'text',
+            backgroundImage: 'linear-gradient(45deg, #FF5300, #FFB700)',
+            textAlign: 'center',
+            color: 'transparent',
+          },
           '.text-style-title-white': {
             fontSize: '40px',
             lineHeight: '1', // 1 =  lineHeight to fontSize ratio (40px)
@@ -72,40 +86,40 @@ module.exports = {
             fontFamily: 'Nunito, sans-serif',
             backgroundClip: 'text',
             backgroundImage: 'linear-gradient(45deg, #FFF3E2, #FFFFE2, #FFFFFF)',
-            textAlign: 'left',  
+            textAlign: 'left',
             color: 'transparent',
           },
-        '.text-style-title-yellow': {
-          fontSize: '40px',
-          lineHeight: '1', // 1 =  lineHeight to fontSize ratio (40px)
-          fontWeight: '900',
-          fontFamily: 'Nunito, sans-serif',
-          backgroundClip: 'text',
-          backgroundImage: 'linear-gradient(45deg, #f74985, #973fc0, #46295c)',
-          textAlign: 'center',  
-          color: 'transparent',
-        },
-        // Custom class for heading style
-        '.text-style-heading': {
-          fontSize: '2rem',
-          lineHeight: '2.5rem',
-          fontWeight: '700',
-          fontFamily: 'Nunito, sans-serif',
-        },
-        // Custom class for subheading style
-        '.text-style-subheading': {
-          fontSize: '1rem',
-          lineHeight: '2rem',
-          fontWeight: '600',
-          fontFamily: 'Nunito',
-        },
-        // Custom class for base text style
-        '.text-style-base': {
-          fontSize: '1rem',
-          lineHeight: '1.5rem',
-          fontWeight: '500',
-          fontFamily: 'Nunito, sans-serif',
-        },
+          '.text-style-title-yellow': {
+            fontSize: '40px',
+            lineHeight: '1', // 1 =  lineHeight to fontSize ratio (40px)
+            fontWeight: '900',
+            fontFamily: 'Nunito, sans-serif',
+            backgroundClip: 'text',
+            backgroundImage: 'linear-gradient(45deg, #f74985, #973fc0, #46295c)',
+            textAlign: 'center',
+            color: 'transparent',
+          },
+          // Custom class for heading style
+          '.text-style-heading': {
+            fontSize: '2rem',
+            lineHeight: '2.5rem',
+            fontWeight: '700',
+            fontFamily: 'Nunito, sans-serif',
+          },
+          // Custom class for subheading style
+          '.text-style-subheading': {
+            fontSize: '1rem',
+            lineHeight: '2rem',
+            fontWeight: '600',
+            fontFamily: 'Nunito',
+          },
+          // Custom class for base text style
+          '.text-style-base': {
+            fontSize: '1rem',
+            lineHeight: '1.5rem',
+            fontWeight: '500',
+            fontFamily: 'Nunito, sans-serif',
+          },
           // Custom class for decor text style
           '.text-style-decor': {
             fontSize: '1rem',
@@ -113,14 +127,9 @@ module.exports = {
             fontWeight: '600',
             fontFamily: 'Poppins, sans-serif',
           },
+        }
+        // Add the new utility classes to Tailwind, making them responsive and hoverable
+        addUtilities(newUtilities, ['responsive', 'hover'])
       }
-      // Add the new utility classes to Tailwind, making them responsive and hoverable
-      addUtilities(newUtilities, ['responsive', 'hover'])
-        
-    }
-  ], // Closing the plugins array
-} // Closing the module.exports object
-
-// Explanation of module.exports:
-// In Node.js, module.exports is used to define what a module exports and makes available for other files to import.
-// Here, it's exporting the entire Tailwind configuration object.
+    ], // Closing the plugins array
+  } // Closing the module.exports object
