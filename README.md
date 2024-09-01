@@ -1,12 +1,11 @@
 # Better You Everyday - React App Documentation
 
-mobile-first web app considerations:
-
-Standard Heights: 56px for mobile, 64px for larger screens.
-Icon Sizes: 24px.
-Padding and Margins: 16px for padding, 8px to 16px for spacing.
-Text Sizes: 16px for primary text, 14px for secondary text, 12px to 14px for labels.
-Responsiveness: Use media queries and flexbox for adaptive layouts.
+- mobile-first web app considerations:
+- Standard Heights: 56px for mobile, 64px for larger screens.
+- Icon Sizes: 24px.
+- Padding and Margins: 16px for padding, 8px to 16px for spacing.
+- Text Sizes: 16px for primary text, 14px for secondary text, 12px to 14px for labels.
+- Responsiveness: Use media queries and flexbox for adaptive layouts.
 
 Summary:
 - App Name: BetterUeveryday
