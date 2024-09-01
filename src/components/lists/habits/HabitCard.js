@@ -1,88 +1,161 @@
-// src/components/habits/HabitCard.js
-import React from 'react';
-import { motion } from 'framer-motion';
-import IconButton from '../../ui/IconButton';
-import { Trash, Palette, Lock, Check, MoreHorizontal, AlarmClock, Star, Repeat, Flag, Calendar } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CheckCircle2, ChevronRight, Zap, Trophy, Flame, Target } from 'lucide-react';
 
-const HabitCard = ({ habit, onToggle, onOpenMenu, onCardClick }) => {
-  const consecutiveDays = 14; 
-  const totalDays = 30;
+const HabitCard = ({ habit = {}, onComplete }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [showCompletionAnim, setShowCompletionAnim] = useState(false);
+  const {
+    name = 'Untitled Habit',
+    currentStreak = 0,
+    longestStreak = 0,
+    completionRate = 0,
+    heatLevel = 0,
+    milestoneProgress = 0,
+    nextMilestone = 10,
+    totalCompletions = 0,
+    totalDays = 30
+  } = habit;
 
-  const handleAction = (e, action) => {
-    e.stopPropagation();
-    action(habit.id);
+  const handleComplete = () => {
+    onComplete();
+    setShowCompletionAnim(true);
+    setTimeout(() => setShowCompletionAnim(false), 1500);
   };
 
   return (
-    // Main container with flexbox
-    <motion.div
-      className="flex rounded-lg shadow-md mb-4 h-36 overflow-hidden"
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.98 }}
-      onClick={() => onCardClick(habit.id)}
+    <motion.div 
+      className="bg-white shadow-sm rounded-lg overflow-hidden border border-gray-200"
+      initial={false}
+      animate={isExpanded ? "expanded" : "collapsed"}
     >
-      {/* White section (left side) */}
-      <div className="flex-grow bg-white p-2 sm:p-4 flex flex-col pl-4 sm:pl-6">
-
-        {/* Habit title */}
-        <h3 className="text-style-subheading text-left mb-2">{habit.name}</h3>
-
-        {/* Progress bars and check button */}
-        <div className="flex items-center space-x-2">
-          <IconButton
-            icon={Check}
-            onClick={(e) => handleAction(e, onToggle)}
-            isActive={habit.isCompleted}
-            className={`flex-shrink-0 ${habit.isCompleted ? 'bg-orange-main text-white' : 'bg-orange-100 text-white'}`}
-          />
-          <div className="flex-grow">
-            {/* First Progress Bar */}
-            <div className="relative w-full h-2 bg-orange-100 rounded-full mb-1">
-              <div 
-                className="absolute top-0 left-0 h-full bg-gradient-orange rounded-full"
-                style={{ width: `${(consecutiveDays / totalDays) * 100}%` }}
-              ></div>
-            </div>
-            {/* Second Progress Bar (Dots) */}
-            <div className="flex justify-between">
-              {[...Array(totalDays)].map((_, index) => (
-                <div 
-                  key={index}
-                  className={`w-2 h-2 rounded-full ${index < consecutiveDays ? 'bg-orange-main' : 'bg-orange-100'}`}
-                ></div>
-              ))}
-            </div>
-          </div>
+      <div 
+        className="flex items-center justify-between p-3 cursor-pointer"
+        onClick={() => setIsExpanded(!isExpanded)}
+      >
+        <div className="flex items-center space-x-3">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={(e) => { e.stopPropagation(); handleComplete(); }}
+          >
+            <CheckCircle2 className="text-orange-500" size={24} />
+          </motion.div>
+          <h3 className="text-lg font-semibold text-gray-800">{name}</h3>
         </div>
-        {/* Status icons and More button */}
-        <div className="mt-auto flex justify-between items-center">
-          <div className="flex overflow-x-auto space-x-3 flex-grow">
-            {habit.isHighlighted && <Star className="cursor-pointer text-gray-400 w-5" />}
-            {habit.isRecurring && <Repeat className="cursor-pointer text-gray-400 w-5" />}
-            {habit.priority && <Flag className="cursor-pointer text-gray-400 w-5" />}
-            {habit.deadline && <Calendar className="cursor-pointer text-gray-400 w-5" />}
-            {habit.reminder && <AlarmClock className="cursor-pointer text-gray-400 w-5" />}
-            {habit.priority && <Lock className="cursor-pointer text-gray-400 w-5" />}
-            {habit.deadline && <Palette className="cursor-pointer text-gray-400 w-5" />}
-            {habit.reminder && <Trash className="cursor-pointer text-gray-400 w-5" />}
-          </div>
-          <IconButton 
-            icon={MoreHorizontal}
-            onClick={(e) => onOpenMenu(e)}
-            className="flex-shrink-0 ml-2"
-          />
+        <div className="flex items-center space-x-4">
+          <CompactStat icon={Flame} value={heatLevel} />
+          <motion.div
+            initial={false}
+            animate={{ rotate: isExpanded ? 90 : 0 }}
+          >
+            <ChevronRight className="text-gray-400" size={20} />
+          </motion.div>
         </div>
       </div>
 
-      {/* Orange section (right side) */}
-      <div className="bg-orange-main w-16 sm:w-20 flex flex-col items-center justify-center flex-shrink-0">
-        <span className="text-xl sm:text-2xl font-bold text-white">{consecutiveDays}</span>
-        <span className="text-xs font-medium text-white">
-          {consecutiveDays === 1 ? 'day' : 'days'}
-        </span>
-      </div>
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            style={{ overflow: 'hidden' }}
+          >
+            <div className="p-3 pt-0 bg-orange-50">
+              <div className="grid grid-cols-3 gap-3 mb-3">
+                <MotivationalStat 
+                  icon={Zap} 
+                  label="Current Streak" 
+                  value={currentStreak}
+                  subtext={`Longest: ${longestStreak}`}
+                />
+                <MotivationalStat 
+                  icon={Trophy} 
+                  label="Milestone" 
+                  value={`${milestoneProgress}/${nextMilestone}`} 
+                  subtext="Keep it up!"
+                />
+                <MotivationalStat 
+                  icon={Target} 
+                  label="Completion Rate" 
+                  value={`${completionRate}%`}
+                  subtext="Overall progress"
+                />
+              </div>
+              <div className="mb-3">
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-xs text-gray-500">Milestone Progress</span>
+                  <span className="text-xs font-medium text-gray-700">{milestoneProgress}/{nextMilestone}</span>
+                </div>
+                <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <motion.div 
+                    className="h-full bg-orange-500 rounded-full" 
+                    initial={{ width: 0 }}
+                    animate={{ width: `${(milestoneProgress/nextMilestone*100).toFixed(0)}%` }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                  />
+                </div>
+              </div>
+              <div>
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-xs text-gray-500">Overall Progress</span>
+                  <span className="text-xs font-medium text-gray-700">{totalCompletions}/{totalDays} days</span>
+                </div>
+                <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <motion.div 
+                    className="h-full bg-green-500 rounded-full" 
+                    initial={{ width: 0 }}
+                    animate={{ width: `${(totalCompletions/totalDays*100).toFixed(0)}%` }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showCompletionAnim && (
+          <motion.div
+            className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: [0, 1.2, 1] }}
+              exit={{ scale: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Flame className="text-orange-400" size={64} />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };
+
+const CompactStat = ({ icon: Icon, value }) => (
+  <div className="flex items-center space-x-1">
+    <Icon className="text-orange-500" size={16} />
+    <span className="text-sm font-medium text-gray-600">{value}</span>
+  </div>
+);
+
+const MotivationalStat = ({ icon: Icon, label, value, subtext }) => (
+  <div className="flex items-center space-x-2">
+    <Icon className="text-orange-500" size={24} />
+    <div>
+      <div className="text-sm font-semibold text-gray-800">{value}</div>
+      <div className="text-xs text-gray-500">{label}</div>
+      <div className="text-xs text-orange-600">{subtext}</div>
+    </div>
+  </div>
+);
 
 export default HabitCard;
