@@ -1,0 +1,45 @@
+/* Default styles for mobile-first approach */
+.header, .bottom-nav {
+  height: 56px;
+  padding: 0 16px;
+}
+
+.icon {
+  font-size: 24px;
+}
+
+.text {
+  font-size: 14px;
+}
+
+/* Media query for tablets and larger screens */
+@media (min-width: 600px) {
+  .header, .bottom-nav {
+    height: 64px;
+    padding: 0 24px;
+  }
+
+  .icon {
+    font-size: 28px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+}
+
+/* Media query for larger screens */
+@media (min-width: 1024px) {
+  .header, .bottom-nav {
+    height: 72px;
+    padding: 0 32px;
+  }
+
+  .icon {
+    font-size: 32px;
+  }
+
+  .text {
+    font-size: 18px;
+  }
+}

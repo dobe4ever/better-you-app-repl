@@ -1,4 +1,3 @@
-// src/components/layout/BottomNav.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ContextualMenu from '../ui/ContextualMenu';
@@ -40,22 +39,22 @@ const BottomNav = () => {
         </div>
       );
     }
-      
+
     return (
       <div
         key={index}
         className="flex flex-col items-center justify-center h-full"
         onClick={item.action || (() => navigate(item.path))}
       >
-        <item.icon className="text-white" />
-        <span className="text-white text-sm">{item.label}</span>
+        <item.icon className="text-white w-6 h-6" />
+        <span className="text-white text-xs mt-1">{item.label}</span>
       </div>
     );
   };
 
   return (
     <>
-      <div className="fixed bottom-0 left-0 right-0 bg-orange-main shadow-lg flex justify-around items-center h-20 px-2 fixed z-10">
+      <div className="fixed bottom-0 left-0 right-0 bg-orange-main shadow-lg flex justify-around items-center h-14 px-4 fixed z-10">
         {navItems.map(renderNavItem)}
       </div>
       <ContextualMenu

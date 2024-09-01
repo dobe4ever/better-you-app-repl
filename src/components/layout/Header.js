@@ -1,5 +1,3 @@
-// src/components/layout/Header.js
-
 import React, { useState } from 'react';
 import { RiMenu2Line, RiNotification3Line, RiUser3Line, RiHome5Line, RiSettings4Line, RiInformationLine, RiEditLine, RiFileListLine, RiLogoutBoxRLine } from 'react-icons/ri';
 import ContextualMenu from '../ui/ContextualMenu';
@@ -37,7 +35,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-orange-main border-transparent p-4 flex justify-between items-center fixed top-0 left-0 right-0 z-10">
+      <header className="bg-orange-main border-transparent p-4 flex justify-between items-center fixed top-0 left-0 right-0 z-10 h-14">
         <div className="flex items-center">
           <IconButtonWhite icon={RiMenu2Line} onClick={() => setIsMenuOpen(true)} className="mr-3" />
 
@@ -45,9 +43,9 @@ const Header = () => {
             src={`${process.env.PUBLIC_URL}/assets/symbol-and-text-horizontal-white.svg`}
             alt="logo"
             className="w-auto"
-            style={{ maxWidth: '100px' }}  
+            style={{ maxWidth: '100px' }}
           />
-            
+
         </div>
         <div className="flex items-center">
           <div className="relative mr-4">
