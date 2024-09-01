@@ -29,6 +29,7 @@
     "@syncfusion/ej2-react-progressbar": "^26.2.10",
     "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",
+    "date-fns": "^3.6.0",
     "framer-motion": "^11.3.19",
     "lucide-react": "^0.428.0",
     "react": "^18.2.0",
