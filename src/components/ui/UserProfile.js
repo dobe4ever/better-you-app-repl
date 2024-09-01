@@ -8,19 +8,23 @@ const UserProfile = ({
     { icon: Calendar, label: "Todos", value: 12 },
     { icon: Target, label: "Goals", value: 3 },
     { icon: Trophy, label: "Achievements", value: 8 }
-  ]
+  ],
+  opacity = 1
 }) => {
   const segments = 4;
   const filledSegments = Math.floor((progress / 100) * segments);
 
   return (
-    <div className="w-full max-w-4xl bg-transparent overflow-hidden transition-all duration-300 p-6 rounded-lg">
+    <div 
+      // <div className="w-full max-w-4xl bg-transparent overflow-hidden transition-all duration-300 p-6 rounded-lg">
+      className="bg-transparent w-full max-w-4xl overflow-hidden transition-all duration-300 p-6 rounded-lg"
+    >
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-3xl font-bold text-white mb-1">Welcome back!</h1>
           <p className="text-xl text-gray-300">{userName}</p>
         </div>
-        <div className="w-20 h-20 bg-white rounded-full overflow-hidden border-4 border-orange-500">
+        <div className="w-35 h-35 bg-white rounded-full overflow-hidden border-4 border-orange-500">
           <img
             src="https://randomuser.me/api/portraits/men/32.jpg"
             alt="User Avatar"

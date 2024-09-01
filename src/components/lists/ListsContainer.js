@@ -37,25 +37,25 @@ const ListsContainer = () => {
     setHabits(habits.filter(habit => habit.id !== id));
   };
 
-  return (
-    <div className="md:flex md:space-x-4 bg-white rounded-3xl shadow-lg px-4 py-6 mt-4">
-      <div className="md:w-1/2">
-        <HabitsList 
-          habits={habits} 
-          onToggle={onToggleHabit}
-          onHighlight={onHighlightHabit}
-          onSetRecurring={onSetRecurringHabit}
-          onDelete={onDeleteHabit}
-        />
-      </div>
-      <div className="md:w-1/2">
-        <TodosList 
-          todos={todos} 
-          onToggle={onToggleTodo}
-        />
-      </div>
+return (
+  <div className="md:flex md:space-x-4 bg-white rounded-3xl shadow-lg px-4 py-6 mt-4 w-full">
+    <div className="md:w-1/2">
+      <HabitsList 
+        habits={habits} 
+        onToggle={onToggleHabit}
+        onHighlight={onHighlightHabit}
+        onSetRecurring={onSetRecurringHabit}
+        onDelete={onDeleteHabit}
+      />
     </div>
-  );
+    <div className="md:w-1/2">
+      <TodosList 
+        todos={todos} 
+        onToggle={onToggleTodo}
+      />
+    </div>
+  </div>
+);
 };
 
 export default ListsContainer;
