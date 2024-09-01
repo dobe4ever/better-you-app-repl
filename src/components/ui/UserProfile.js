@@ -17,7 +17,7 @@ const UserProfile = ({
   return (
     <div className="bg-transparent w-full max-w-5xl overflow-hidden transition-all duration-300 p-6 rounded-lg">
       <div className="flex flex-col items-center mb-4">
-        <div className="relative w-80 h-80 mb-4"> {/* Increased size here */}
+        <div className="relative w-60 h-60 mb-4"> {/* Increased size here */}
           <div className="absolute inset-0 rounded-full" style={{
             background: `conic-gradient(#eea30b ${progress}%, #8f3e1c ${progress}%)`
           }}></div>
