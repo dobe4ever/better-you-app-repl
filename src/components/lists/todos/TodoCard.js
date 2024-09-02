@@ -44,8 +44,8 @@ const TodoCard = ({ todo, onToggle, onEdit, onDelete, onUpdateNotes, onRepeatTog
       {!isFlipped ? (
         <motion.div
           key="front"
-          className="bg-white rounded-lg shadow-md mb-4 border-0 border-gray-200 cursor-pointer"
-          whileHover={{ scale: 1.03 }}
+          className="bg-white rounded-lg shadow-md mb-4 border border-gray-200 cursor-pointer overflow-hidden"
+          whileHover={{ scale: 1.02, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)" }}
           whileTap={{ scale: 0.98 }}
           initial={{ rotateY: 180 }}
           animate={{ rotateY: 0 }}
@@ -53,14 +53,14 @@ const TodoCard = ({ todo, onToggle, onEdit, onDelete, onUpdateNotes, onRepeatTog
           transition={{ duration: 0.5 }}
           onClick={handleFlip}
         >
-          <div className="flex justify-between items-center p-1 pl-4 pr-2">
-            <div className="flex items-center flex-grow">
+          <div className="flex items-center justify-between p-4">
+            <div className="flex items-center flex-grow mr-4">
               <div
-                className={`w-6 h-6 rounded-full mr-3 flex items-center justify-center cursor-pointer
-                  ${todo.isCompleted ? 'bg-orange-main' : 'bg-orange-100'}`}
+                className={`w-6 h-6 rounded-full mr-4 flex items-center justify-center cursor-pointer transition-colors duration-200 ease-in-out
+                  ${todo.isCompleted ? 'bg-orange-main hover:bg-orange-600' : 'bg-orange-100 hover:bg-orange-200'}`}
                 onClick={handleToggle}
               >
-                <Check className="text-white" />
+                <Check className={`w-4 h-4 ${todo.isCompleted ? 'text-white' : 'text-orange-main'}`} />
               </div>
               {isEditing ? (
                 <input
@@ -75,31 +75,31 @@ const TodoCard = ({ todo, onToggle, onEdit, onDelete, onUpdateNotes, onRepeatTog
                     }
                   }}
                   autoFocus
-                  className="font-semibold border-b-2 border-gray-400 outline-none flex-grow"
+                  className="font-semibold text-gray-800 border-b-2 border-orange-main outline-none flex-grow bg-transparent"
                   onClick={(e) => e.stopPropagation()}
                 />
               ) : (
-                <h3 className="text-style-baseText flex-grow">{todo.title}</h3>
+                <h3 className={`text-lg font-semibold flex-grow ${todo.isCompleted ? 'text-gray-500 line-through' : 'text-gray-800'}`}>{todo.title}</h3>
               )}
             </div>
-            <div className="flex items-center p-2">
+            <div className="flex items-center space-x-3">
               {todo.hasNotes && (
-                <FileText className="text-orange-main cursor-pointer mr-3 w-5" />
+                <FileText className="text-orange-main cursor-pointer w-5 h-5 hover:text-orange-600 transition-colors duration-200" />
               )}
               <Repeat
-                className={`cursor-pointer mr-3 w-5 ${todo.isRecurring ? 'text-orange-main' : 'text-gray-400'}`}
+                className={`cursor-pointer w-5 h-5 transition-colors duration-200 ${todo.isRecurring ? 'text-orange-main hover:text-orange-600' : 'text-gray-400 hover:text-gray-600'}`}
                 onClick={handleRepeatClick}
               />
               <Edit
-                className="text-gray-400 cursor-pointer mr-3 w-5"
+                className="text-gray-400 cursor-pointer w-5 h-5 hover:text-gray-600 transition-colors duration-200"
                 onClick={handleEditClick}
               />
               <Trash
-                className="text-gray-400 cursor-pointer mr-3 w-5"
+                className="text-gray-400 cursor-pointer w-5 h-5 hover:text-red-500 transition-colors duration-200"
                 onClick={handleDeleteClick}
               />
               <ChevronRight
-                className="text-gray-400 cursor-pointer w-5"
+                className="text-gray-400 cursor-pointer w-5 h-5 hover:text-gray-600 transition-colors duration-200"
               />
             </div>
           </div>
