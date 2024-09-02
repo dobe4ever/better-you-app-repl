@@ -38,7 +38,7 @@ const ListsContainer = () => {
   };
 
 return (
-  <div className="md:flex md:space-x-2 bg-white rounded-3xl rounded-b-none shadow-lg px-3 py-3 mt- w-full">
+  <div className="md:flex md:space-x-2 bg-white rounded-3xl rounded-b-none shadow-lg pt-4 px-3 py-3 mt- w-full">
     <div className="md:w-1/2">
       <HabitsList 
         habits={habits} 

@@ -7,11 +7,11 @@ const HabitCard = ({ habit = {}, onComplete }) => {
   const [showCompletionAnim, setShowCompletionAnim] = useState(false);
   const {
     name = 'Untitled Habit',
-    currentStreak = 0,
-    longestStreak = 0,
-    completionRate = 0,
-    heatLevel = 0,
-    milestoneProgress = 0,
+    currentStreak = 10,
+    longestStreak = 125,
+    completionRate = 62,
+    heatLevel = 3,
+    milestoneProgress = 5,
     nextMilestone = 10,
     totalCompletions = 0,
     totalDays = 30
@@ -41,7 +41,7 @@ const HabitCard = ({ habit = {}, onComplete }) => {
           >
             <CheckCircle2 className="text-orange-500" size={24} />
           </motion.div>
-          <h3 className="text-lg font-semibold text-gray-800">{name}</h3>
+          <h3 className="text-s font-semibold text-gray-800">{name}</h3>
         </div>
         <div className="flex items-center space-x-4">
           <CompactStat icon={Flame} value={heatLevel} />
